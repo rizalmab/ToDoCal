@@ -16,3 +16,5 @@ app.use("/api/v1/todos", todoRouter);
 app.listen(port, () => {
   console.log(`🟢 Server is running at https://localhost:${port}`);
 });
+
+export default app;
