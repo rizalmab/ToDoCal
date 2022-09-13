@@ -1,16 +1,24 @@
 import { Navigate, Outlet } from "react-router-dom";
 
+// pages and components
+import Navbar from "./../components/Navbar";
+
 interface routeProps {
-  user: { firstname?: string };
+  user: { firstname?: string } | null;
   // children: JSX.Element;
 }
 
 const Private = ({ user }: routeProps) => {
   const auth: boolean = !!user;
-  console.log('private', auth)
+
   // If authorized, return an outlet that will render child elements
   // If not, return element that will navigate to login page
-  return auth ? <Outlet /> : <Navigate to="/auth" />;
+  return (
+    <>
+      <Navbar />
+      {auth ? <Outlet /> : <Navigate to="/auth" />}
+    </>
+  );
 };
 
 export default Private;
